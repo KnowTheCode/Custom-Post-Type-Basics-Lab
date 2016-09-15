@@ -15,18 +15,17 @@ namespace KnowTheCode\TeamBios\Support;
  *
  * @since 1.0.0
  *
- * @param string $plugin_root_dir
+ * @param string $src_root_dir Root directory for the source files
  *
  * @return void
  */
-function autoload_files( $plugin_root_dir ) {
-	$src_directory = $plugin_root_dir . 'src/';
+function autoload_files( $src_root_dir ) {
 
 	$filenames = array(
 		 'custom/custom-post-type',
 	);
 
 	foreach( $filenames as $filename ) {
-		include_once( $src_directory . $filename . '.php' );
+		include_once( $src_root_dir . $filename . '.php' );
 	}
 }

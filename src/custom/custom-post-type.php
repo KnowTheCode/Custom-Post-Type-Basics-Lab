@@ -20,4 +20,10 @@ add_action( 'init', __NAMESPACE__ . '\register_custom_post_type' );
  */
 function register_custom_post_type() {
 
+	$args = array(
+		'label'  => __( 'Team Bios', 'teambios' ),
+		'public' => true,
+	);
+
+	register_post_type( 'team-bios', $args );
 }

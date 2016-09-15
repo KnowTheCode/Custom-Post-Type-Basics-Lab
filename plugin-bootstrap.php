@@ -9,7 +9,7 @@
  * @wordpress-plugin
  * Plugin Name: Team Bios Plugin
  * Plugin URI:  https://knowthecode.io/labs/lets-build-wordpress-starter-plugin
- * Description: Team Bios functionality and custom post type for your website
+ * Description: Team Bios functionality and custom post type for the Custom Post Type Basics Labs
  * Version:     1.0.0
  * Author:      hellofromTonya
  * Author URI:  https://knowthecode.io
@@ -78,7 +78,7 @@ function flush_rewrites() {
 function init_autoloader() {
 	require_once( 'src/support/autoloader.php' );
 
-	Support\autoload_files( __DIR__ );
+	Support\autoload_files( __DIR__ . '/src/' );
 }
 
 /**
