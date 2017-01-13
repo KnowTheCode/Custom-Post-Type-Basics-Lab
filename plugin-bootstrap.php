@@ -10,7 +10,7 @@
  * Plugin Name: Team Bios Plugin
  * Plugin URI:  https://knowthecode.io/labs/lets-build-wordpress-starter-plugin
  * Description: Team Bios functionality and custom post type for the Custom Post Type Basics Labs
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      hellofromTonya
  * Author URI:  https://knowthecode.io
  * Text Domain: teambios
@@ -50,7 +50,7 @@ function init_constants() {
  */
 function init_hooks() {
 	register_activation_hook( __FILE__, __NAMESPACE__ . '\flush_rewrites' );
-	register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+	register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate_plugin' );
 }
 
 /**
@@ -66,6 +66,17 @@ function flush_rewrites() {
 	Custom\register_custom_post_type();
 
 	flush_rewrite_rules();
+}
+
+/**
+ * The plugin is deactivating.  Delete out the rewrite rules option.
+ *
+ * @since 1.0.1
+ *
+ * @return void
+ */
+function deactivate_plugin() {
+	delete_option( 'rewrite_rules' );
 }
 
 /**
